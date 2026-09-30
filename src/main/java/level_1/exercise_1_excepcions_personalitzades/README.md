@@ -27,3 +27,15 @@ Saps què significa això? Quina diferència hi ha entre una excepció verificad
 1. Clonar el repositori: `git clone ...`
 2. Execució de l'aplicació.
 3. Proves: Executar el `Main()`.
+
+
+## 📌 Anotacions
+### Checked Exceptions
+- Les "checked exceptions" són les que el java compiler pot verificar al moment de compilar.
+- D'aquestes, si el programa està ben escrit, es pot recuperar sense haver de finalitzar-ho.
+- S'utilitza l'expressió "try-catch" per agafar les "checked exceptions" llençades dins del programa. I "throws" per definir que un methode pot llençar-ne una.
+
+### Unchecked Exceptions
+- Les "unchecked exceptions" són les que el java compiler no pot verificar al moment de compilar.
+- Per tant, el programa no s'hi pot recuperar i ha de terminar el programa.
+- No estan sotmeses al requeriment del bloc "try-catch".
