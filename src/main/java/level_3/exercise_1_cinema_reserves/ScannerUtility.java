@@ -67,7 +67,7 @@ public class ScannerUtility {
                 number = readNumber(type);
                 validNumber = true;
             } catch (InputMismatchException e) {
-                LOGGER.warn("Input mismatch error <<{}>>: ", e.getClass().getSimpleName());
+                LOGGER.warn("Input mismatch error <<{}>>. It must be type of {}", e.getClass().getSimpleName(), type.getSimpleName());
             } catch (Exception e){
                 LOGGER.error("Unknown exception <<{}>> : {}", e.getClass().getSimpleName(),e.getMessage());
             } finally {
