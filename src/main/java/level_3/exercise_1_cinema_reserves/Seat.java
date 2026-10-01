@@ -10,11 +10,18 @@ public class Seat {
     public Seat(int col, int row) {
         this.col = col;
         this.row = row;
+        personName = "";
     }
     public int getRow() { return row; }
     public int getCol() { return col; }
     public String getPersonName() { return personName; }
-    public void setPersonName(String personName) { this.personName = personName; }
+    public void setPersonName(String personName) {
+        if (personName == null)
+                throw new IllegalArgumentException("Person name cannot be null");
+
+        this.personName = personName;
+    }
+    public void clearSeat() { personName = ""; }
 
     @Override
     public boolean equals(Object o) {
@@ -29,7 +36,7 @@ public class Seat {
 
     @Override
     public String toString() {
-        return "Seat{" +
+        return "\nSeat{" +
                 "row=" + row +
                 ", seat=" + col +
                 ", personName='" + personName + '\'' +
