@@ -12,8 +12,7 @@ public class Seat {
         this.row = row;
         personName = "";
     }
-    public int getRow() { return row; }
-    public int getCol() { return col; }
+
     public String getPersonName() { return personName; }
     public void setPersonName(String personName) {
         if (personName == null)
