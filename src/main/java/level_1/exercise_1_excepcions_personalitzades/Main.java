@@ -13,7 +13,7 @@ public class Main {
     Sale emptySale = new Sale(List.of());
 
     void main(String[] args) {
-        // First test
+        // First test -> EmptySaleException
         try {
             sale.validatedCalculateTotal();
             emptySale.validatedCalculateTotal();
@@ -21,18 +21,18 @@ public class Main {
             LOGGER.error("Empty sale error: ", exceptionA);
         }
 
-        // Second test
+        // Second test -> ArrayIndexOutOfBoundsException
         try {
             emptySale.getPriceFirstProduct();
         } catch (RuntimeException exceptionB) {
-            LOGGER.error("Unknown runtime exception", exceptionB);
+            LOGGER.error("Unknown runtime exception: ", exceptionB);
         }
 
-        // Third test
+        // Third test -> EmptySaleRuntimeException
         try {
             emptySale.unValidatedCalculateTotal();
         } catch (RuntimeException exceptionB) {
-            LOGGER.error("Unknown runtime exception", exceptionB);
+            LOGGER.error("Unknown runtime exception: ", exceptionB);
         }
     }
 }
