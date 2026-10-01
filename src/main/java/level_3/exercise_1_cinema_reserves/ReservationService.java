@@ -27,14 +27,15 @@ public class ReservationService {
     public void cancelSeat(int row, int col) {
         Seat seat = getSeat(row, col);
         validateSeatTaken(seat);
-        seat.setPersonName(null);
+        seat.clearSeat();
     }
 
     public void cancelAllByPerson(String person) {
         List<Seat> seats = getSeatsByPerson(person);
+
         for (Seat seat : seats) {
             validateSeatTaken(seat);
-            seat.setPersonName(null);
+            seat.clearSeat();
         }
     }
 
@@ -44,10 +45,17 @@ public class ReservationService {
 
     public List<Seat> getSeatsByPerson(String person) {
         validatePersonName(person);
-        return seats
+
+        var list = seats
                 .stream()
                 .filter(seat -> seat.getPersonName().equalsIgnoreCase(person))
                 .toList();
+
+        if (list.isEmpty()) {
+            throw new SeatAlreadyEmptyException ("Person doesn't have any seats!");
+        }
+
+        return list;
     }
 
     private ArrayList<Seat> initializeSeats() {
