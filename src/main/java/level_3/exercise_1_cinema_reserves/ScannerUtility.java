@@ -34,12 +34,12 @@ public class ScannerUtility {
         scanner.nextLine();
     }
 
-    public static String fetchStringInput(Logger logger, String message) {
+    public static String fetchStringInput(String message) {
         String str = "";
 
         while (str.isEmpty()) {
             try {
-                logger.info(message);
+                LOGGER.info(message);
                 String newChar = scanner.nextLine();
                 if (newChar.trim().isEmpty()) {
                     throw new EmptyStringException("Empty String");
@@ -63,7 +63,7 @@ public class ScannerUtility {
         boolean validNumber = false;
         while (!validNumber) {
             try {
-                System.out.println(showMessage);
+                LOGGER.info(showMessage);
                 number = readNumber(type);
                 validNumber = true;
             } catch (InputMismatchException e) {
